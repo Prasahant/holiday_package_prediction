@@ -33,30 +33,24 @@ model, preprocessor = load_model()
 
 st.markdown(
     """
-    <style>
+<div class="hero">
+    <div class="hero-title">✈️ Holiday Package Purchase Predictor</div>
 
-    /* Main background */
-    .stApp {
-        background:
-            radial-gradient(
-                circle at 10% 10%,
-                rgba(0, 200, 255, 0.18),
-                transparent 30%
-            ),
-            radial-gradient(
-                circle at 90% 20%,
-                rgba(140, 80, 255, 0.18),
-                transparent 30%
-            ),
-            radial-gradient(
-                circle at 50% 100%,
-                rgba(0, 255, 170, 0.10),
-                transparent 30%
-            ),
-            #07111f;
-        color: #ffffff;
-    }
+    <div class="hero-description">
+        An end-to-end Machine Learning application that predicts whether
+        a customer is likely to purchase a holiday package based on
+        customer demographics, interaction details, travel behavior,
+        and sales-pitch information.
+    </div>
 
+    <div class="hero-description">
+        Enter the customer's information below and let the trained
+        Random Forest Classification model generate a prediction.
+    </div>
+</div>
+""",
+    unsafe_allow_html=True
+)
     /* Main content */
     .block-container {
         max-width: 1250px;
@@ -81,24 +75,28 @@ st.markdown(
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
-    .hero h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
-        background: linear-gradient(
-            90deg,
-            #00e5ff,
-            #7c4dff,
-            #00ffa3
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+    .hero-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 18px;
 
-    .hero p {
-        font-size: 17px;
-        color: #c8d4e3;
-        line-height: 1.7;
-    }
+    background: linear-gradient(
+        90deg,
+        #00e5ff,
+        #7c4dff,
+        #00ffa3
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    font-size: 17px;
+    color: #c8d4e3;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
 
     /* Glass cards */
     .glass-card {
