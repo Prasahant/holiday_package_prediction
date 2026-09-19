@@ -46,25 +46,11 @@ st.markdown(
 .stApp {
 
     background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(0, 190, 255, 0.18),
-            transparent 30%
+        linear-gradient(
+            rgba(7, 17, 31, 0.64),
+            rgba(7, 17, 31, 0.78)
         ),
-
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(120, 70, 255, 0.18),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(0, 255, 170, 0.10),
-            transparent 30%
-        ),
-
-        #07111f;
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80") center center / cover no-repeat fixed;
 
     color: white;
 }
@@ -152,6 +138,22 @@ st.markdown(
 }
 
 
+.hero-layout {
+
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+}
+
+
+.hero-copy {
+
+    flex: 1;
+
+}
+
+
 /* =====================================================
    GLASS CARD
    ===================================================== */
@@ -228,14 +230,36 @@ st.markdown(
 
 
 /* =====================================================
-   INPUT LABELS
+   TEXT CONTRAST & READABILITY
    ===================================================== */
+
+p,
+li,
+span,
+label,
+[data-testid="stMarkdownContainer"],
+[data-testid="stDataFrame"] {
+
+    color: #f5fbff !important;
+
+}
+
+h1, h2, h3, h4, h5, h6,
+.stSubheader,
+.stMarkdown h1,
+.stMarkdown h2,
+.stMarkdown h3 {
+
+    color: #ffffff !important;
+
+}
+
 
 label {
 
-    color: #dce8f5 !important;
+    color: #edf9ff !important;
 
-    font-weight: 600 !important;
+    font-weight: 700 !important;
 
 }
 
@@ -247,14 +271,17 @@ label {
 .stSelectbox > div > div {
 
     background:
-        rgba(255,255,255,0.07) !important;
+        rgba(12, 25, 38, 0.72) !important;
 
     color: white !important;
 
     border:
-        1px solid rgba(255,255,255,0.15) !important;
+        1px solid rgba(139, 219, 255, 0.35) !important;
 
     border-radius: 12px !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08);
 
 }
 
@@ -262,14 +289,34 @@ label {
 .stNumberInput input {
 
     background:
-        rgba(255,255,255,0.07) !important;
+        rgba(12, 25, 38, 0.72) !important;
 
     color: white !important;
 
     border:
-        1px solid rgba(255,255,255,0.15) !important;
+        1px solid rgba(139, 219, 255, 0.35) !important;
 
     border-radius: 12px !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+}
+
+
+[data-testid="stForm"] {
+
+    background:
+        rgba(10, 18, 29, 0.42);
+
+    border:
+        1px solid rgba(255,255,255,0.10);
+
+    border-radius: 20px;
+
+    padding: 1rem;
+
+    backdrop-filter: blur(12px);
 
 }
 
@@ -391,10 +438,20 @@ div[data-testid="stAlert"] {
     border-radius: 14px;
 
     background:
-        rgba(0,180,255,0.08);
+        rgba(13, 39, 58, 0.72);
 
     border:
-        1px solid rgba(0,200,255,0.15);
+        1px solid rgba(127, 222, 255, 0.28);
+
+    color: #f5fbff !important;
+
+}
+
+
+div[data-testid="stAlert"] p,
+div[data-testid="stAlert"] div {
+
+    color: #f5fbff !important;
 
 }
 
@@ -405,9 +462,49 @@ div[data-testid="stAlert"] {
 
 [data-testid="stDataFrame"] {
 
-    border-radius: 15px;
+    border-radius: 18px;
 
     overflow: hidden;
+
+    background:
+        rgba(8, 18, 29, 0.58);
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.20);
+
+}
+
+
+[data-testid="stDataFrame"] .stDataFrame {
+
+    background:
+        rgba(8, 18, 29, 0.58);
+
+}
+
+
+[data-testid="stDataFrame"] table,
+[data-testid="stDataFrame"] th,
+[data-testid="stDataFrame"] td {
+
+    color: #f5fbff !important;
+
+    background: rgba(8, 18, 29, 0.48) !important;
+
+}
+
+
+[data-testid="stDataFrame"] thead th {
+
+    background:
+        rgba(26, 56, 79, 0.9) !important;
+
+    color: #ffffff !important;
+
+    font-weight: 700;
 
 }
 
@@ -439,30 +536,36 @@ footer {
 # HERO SECTION
 # =========================================================
 
+st.markdown('<div class="hero">', unsafe_allow_html=True)
+
+st.markdown('<div class="hero-copy">', unsafe_allow_html=True)
 st.markdown(
-    """
-<div class="hero">
-
-    <div class="hero-title">
-        ✈️ Holiday Package Purchase Predictor
-    </div>
-
-    <div class="hero-description">
-        An end-to-end Machine Learning application that predicts
-        whether a customer is likely to purchase a holiday package
-        based on customer demographics, interaction details,
-        travel behavior, and sales-pitch information.
-    </div>
-
-    <div class="hero-description">
-        Enter the customer's information below and let the trained
-        Random Forest Classification model generate a prediction.
-    </div>
-
-</div>
-""",
+    '<div class="hero-title">✈️ Holiday Package Purchase Predictor</div>',
     unsafe_allow_html=True
 )
+st.markdown(
+    (
+        '<div class="hero-description">'
+        'An end-to-end Machine Learning application that predicts '
+        'whether a customer is likely to purchase a holiday package '
+        'based on customer demographics, interaction details, '
+        'travel behavior, and sales-pitch information.'
+        '</div>'
+    ),
+    unsafe_allow_html=True
+)
+st.markdown(
+    (
+        '<div class="hero-description">'
+        'Enter the customer\'s information below and let the trained '
+        'Random Forest Classification model generate a prediction.'
+        '</div>'
+    ),
+    unsafe_allow_html=True
+)
+st.markdown('</div>', unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 
 # =========================================================
@@ -482,49 +585,50 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.subheader("What does this project do?")
+st.subheader("What this app does")
 
 st.write(
     """
-    This project is a Holiday Package Purchase Prediction system.
-    It uses customer-related information to predict whether a
-    customer is likely to purchase a holiday package.
+    This application predicts whether a customer is likely to buy a holiday package
+    based on their personal profile, travel behavior, and sales interaction history.
+    It is designed to support quick decision-making for travel businesses by estimating
+    purchase intent from structured customer data.
     """
 )
 
-st.subheader("🧠 Machine Learning Model")
+st.subheader("🧠 Machine learning approach")
 
 st.write(
     """
-    The prediction is performed using a Random Forest Classifier.
-    Random Forest is an ensemble classification algorithm that
-    combines multiple decision trees to make a final prediction.
+    The prediction engine uses a Random Forest Classifier, an ensemble learning model
+    that combines multiple decision trees to improve accuracy and reduce overfitting.
+    The model is trained on historical customer records and evaluates whether the likely
+    outcome is purchase or non-purchase.
     """
 )
 
-st.subheader("⚙️ Data Preprocessing")
+st.subheader("⚙️ Data preparation")
 
 st.write(
     """
-    Before making a prediction, the customer input is passed through
-    the same preprocessing pipeline used during model training.
-    Categorical variables are handled using One-Hot Encoding and
-    numerical variables are scaled using StandardScaler.
+    Before prediction, the input data passes through the same preprocessing pipeline used
+    during model training. Categorical features are transformed with One-Hot Encoding,
+    while numerical fields are standardized for consistent model input.
     """
 )
 
-st.subheader("🎯 Prediction Target")
+st.subheader("🎯 Prediction target")
 
 st.write(
     """
-    The target variable is ProdTaken.
+    The model predicts a binary target, where:
     """
 )
 
 st.markdown(
     """
-    - **0** → Customer is predicted not to purchase the package
-    - **1** → Customer is predicted to purchase the package
+    - **0** → Customer is predicted not to purchase the holiday package
+    - **1** → Customer is predicted to purchase the holiday package
     """
 )
 
@@ -1019,6 +1123,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown(
+    '<div class="glass-card">',
+    unsafe_allow_html=True
+)
 
 input_guide = pd.DataFrame(
     {
@@ -1087,32 +1195,30 @@ st.dataframe(
     hide_index=True
 )
 
+st.markdown(
+    '</div>',
+    unsafe_allow_html=True
+)
+
 
 # =========================================================
 # FOOTER
 # =========================================================
 
 st.markdown(
-    """
-<div style="
-    text-align: center;
-    color: #8191a5;
-    padding: 35px;
-    font-size: 14px;
-">
-
-    ✈️ <b>Holiday Package Purchase Prediction</b>
-
-    <br><br>
-
-    Built with Python • Pandas • Scikit-learn • Streamlit
-
-    <br>
-
-    Machine Learning Model:
-    <b>Random Forest Classifier</b>
-
-</div>
-""",
+    (
+        '<div style="'
+        'text-align: center; '
+        'color: #8191a5; '
+        'padding: 35px 20px 10px; '
+        'font-size: 14px; '
+        'line-height: 1.8;">'
+        '✈️ <b>Holiday Package Purchase Predictor</b><br>'
+        'Built with Python • Pandas • Scikit-learn • Streamlit<br>'
+        'Forecasting purchase intent using customer demographics, '
+        'sales interaction data, and travel preferences.<br>'
+        'Model: <b>Random Forest Classifier</b>'
+        '</div>'
+    ),
     unsafe_allow_html=True
 )
